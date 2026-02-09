@@ -13,7 +13,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Comic Sans MS", cursive, sans-serif;
+
+      /* ✅ clean iPhone-friendly font */
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+
       text-align: center;
       color: #fff;
     }
@@ -44,6 +47,9 @@
       cursor: pointer;
       margin: 8px;
       transition: transform 0.2s ease;
+
+      /* ✅ removes iPhone tap flash */
+      -webkit-tap-highlight-color: transparent;
     }
 
     #yes {
@@ -83,7 +89,7 @@
   <div class="card" id="card">
     <h1>Hi Layal!</h1>
     <p>
-      Beans was wondering...  
+      Beans was wondering...
       <br><br>
       Will you be our Valentine?
     </p>
@@ -102,10 +108,20 @@
     const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
 
-    noBtn.addEventListener("mouseover", () => {
+    // ✅ works on desktop + iPhone
+    function moveNoButton() {
       const x = Math.random() * 200 - 100;
       const y = Math.random() * 200 - 100;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // Desktop hover
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+    // iPhone / touch devices
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // prevents accidental click/selection
+      moveNoButton();
     });
 
     yesBtn.addEventListener("click", () => {
