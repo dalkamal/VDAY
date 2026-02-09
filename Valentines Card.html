@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi! Layal!</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      max-width: 380px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: white;
+      color: #ff4d6d;
+      position: relative;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .photos {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .photos img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card" id="card">
+    <h1>Hi Layal!</h1>
+    <p>
+      Beans was wondering...  
+      <br><br>
+      Will you be our Valentine?
+    </p>
+
+    <button id="yes">Yes!!!🔪</button>
+    <button id="no">No???🫩</button>
+
+    <div class="photos">
+      <img src="photos/layal1.jpg" alt="Layal">
+      <img src="photos/layal2.jpg" alt="Layal">
+      <img src="photos/layal3.jpg" alt="Layal">
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      const card = document.getElementById("card");
+
+      card.innerHTML = `
+        <h1>Had me worried for a second...</h1>
+
+        <img
+          src="photos/IMG6.jpeg"
+          alt="Us"
+          style="
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 18px 0;
+            border: 2px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+          "
+        />
+
+        <p>
+          YAYAYAY
+          <br><br>
+          You right. 🪖
+        </p>
+
+        <p>Happy Valentine’s Day! - Dalia</p>
+      `;
+    });
+  </script>
+</body>
+</html>
